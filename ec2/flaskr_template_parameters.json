@@ -1,0 +1,22 @@
+[
+  {
+    "ParameterKey": "KeyName",
+    "ParameterValue": "",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "InstanceType",
+    "ParameterValue": "t2.micro",
+    "UsePreviousValue": false
+  }
+  // {
+  //   "ParameterKey": "SSHLocation",
+  //   "ParameterValue": "",
+  //   "UsePreviousValue": false
+  // },
+  // {
+  //   "ParameterKey": "LatestAmiId",
+  //   "ParameterValue": "",
+  //   "UsePreviousValue": false
+  // }
+]
