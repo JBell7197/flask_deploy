@@ -2,4 +2,4 @@
 Establish various deployments for the flask tutorial app
 
 Deployments:
-* Local Vagrant
+* AWS EC2 via Cloudformation

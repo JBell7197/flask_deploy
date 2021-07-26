@@ -1,0 +1,12 @@
+[
+  {
+    "ParameterKey": "KeyName",
+    "ParameterValue": "admin-key",
+    "UsePreviousValue": false
+  },
+  {
+    "ParameterKey": "InstanceType",
+    "ParameterValue": "t2.micro",
+    "UsePreviousValue": false
+  }
+]
