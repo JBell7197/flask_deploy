@@ -26,8 +26,8 @@ Parameters:
       i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge,
       d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge]
     ConstraintDescription: must be a valid EC2 instance type.
-  SSHLocation:
-    Description: The IP address range that can be used to SSH to the EC2 instances
+  AccessLocation:
+    Description: The IP address range that can be used to access the EC2 instances
     Type: String
     MinLength: 9
     MaxLength: 18
@@ -53,16 +53,16 @@ Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Enable SSH access via port 22
+      GroupDescription: Enable SSH access via port 22 and HTTP access via port 5000
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
-        CidrIp: !Ref 'SSHLocation'
+        CidrIp: !Ref 'AccessLocation'
       - IpProtocol: tcp
         FromPort: 5000
         ToPort: 5000
-        CidrIp: !Ref 'SSHLocation'
+        CidrIp: !Ref 'AccessLocation'
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance

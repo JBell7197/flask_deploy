@@ -4,19 +4,29 @@ Prerequisites
 1. Install AWS CLI
 1. Configure AWS Access and Secret Keys
 
-Create EC2 instance
+Create S3 Bucket
 ```zsh
-aws cloudformation create-stack --stack-name flaskr-deploy-1 --template-url file://flaskr.template.yaml --parameters file://flaskr_template_parameters.json
+aws s3api create-bucket --bucket [BUCKET NAME]
 ```
 
-Delete EC2 instance (if necessary)
+Upload Flaskr Cloudformation template to S3 bucket
 ```zsh
-aws cloudformation delete-stack --stack-name flaskr-deploy-1
+aws s3 cp flaskr.template.yaml s3://[BUCKET-NAME]
 ```
 
-Get Flaskr box IP from flaskr-deploy-1 outputs
+Create Flaskr stack
 ```zsh
-aws cloudformation describe-stacks --stack-name flaskr-deploy-1
+aws cloudformation create-stack --stack-name flaskr-deploy-1 https://[BUCKET-NAME].s3.[REGION].amazonaws.com/flaskr.template.yaml --parameters file://flaskr_template_parameters.json
+```
+
+Watch Flaskr stack creation progress
+```zsh
+watch aws cloudformation describe-stack-events --stack-name flaskr-deploy-1
+```
+
+Get Flaskr box IP
+```zsh
+aws cloudformation describe-stacks --stack-name flaskr-deploy-1 | grep -A1 PublicIP
 ```
 
 Upload Flaskr install script to Flaskr box
@@ -39,4 +49,9 @@ chmod +x install_flaskr.sh
 Access Flaskr in browser
 ```
 [FLASKR BOX IP]:5000
+```
+
+Destroy Flaskr Stack
+```zsh
+aws cloudformation delete-stack --stack-name flaskr-deploy-1
 ```
