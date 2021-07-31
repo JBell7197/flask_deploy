@@ -4,6 +4,11 @@ Prerequisites
 1. Install AWS CLI
 1. Configure AWS Access and Secret Keys
 
+Install AWS CLI
+```zsh
+brew install awscli
+```
+
 Create S3 Bucket
 ```zsh
 aws s3api create-bucket --bucket [BUCKET NAME]
