@@ -1,12 +1,15 @@
 # Deploying Flaskr in AWS EC2
 
-Prerequisites
-1. Install AWS CLI
-1. Configure AWS Access and Secret Keys
-
 Install AWS CLI
 ```zsh
 brew install awscli
+```
+
+Configure AWS Access Key, Secret Key, and Region
+```zsh
+export AWS_ACCESS_KEY_ID=[ACCESS-KEY]
+export AWS_SECRET_ACCESS_KEY=[SECRET-KEY]
+export AWS_DEFAULT_REGION=[REGION]
 ```
 
 Create S3 Bucket
